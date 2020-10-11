@@ -1,11 +1,12 @@
-import java.util.ArrayList;
+
 
 public class Main {
 	public static void main(String[] args) {
-		Leitor leitor = new Leitor();
 		Pessoa pessoa = new Pessoa();
-		ArrayList<Sintoma> sintomas = new ArrayList<Sintoma>();
-		pessoa.setSintomas(leitor.lerSintoma(sintomas));
-		pessoa.toString();
+		Construtor construtor = new Construtor();
+		Regras regras = new Regras();
+		pessoa = construtor.lerSintoma(pessoa);
+		construtor.constroiEvidenciaSintomas(pessoa.getSintomas());
+		regras.calcula(pessoa.getSintomas());
 	}
 }
